@@ -6,6 +6,8 @@ load_dotenv()
 
 model_client = OpenAIChatCompletionClient(
     model= MODEL_NAME,
-    openai_api_key= OPENAI_API_KEY
-    
+    openai_api_key= OPENAI_API_KEY,
+    max_retries=6,       # retry on 429
+    timeout=60,          # optional
+    max_tokens=150
 )
